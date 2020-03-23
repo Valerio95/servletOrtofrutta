@@ -17,15 +17,10 @@ for(Prodotto p : listaProdotti){
 
 <% } %>
 
-<form action="compra">
+<form action="rimuovi">
 	ID: <input type="number" name="id" /><br><br>
-	Quantità: <input type="number" name ="qta" /><br><br>
-	<input type="submit" value="VENDI!"> <br><br>
+	<input type="submit" value="RIMUOVI"> <br><br>
 </form>
 
 <br><br>
 <form action="intro">
-<input type="submit" value="Torna in home"> </form>
-</body>
-</body>
-</html>

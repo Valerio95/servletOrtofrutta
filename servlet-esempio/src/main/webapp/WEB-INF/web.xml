@@ -6,13 +6,14 @@
 	
 	<servlet>
 		<servlet-name>negozioOrtofrutta</servlet-name>
-		<servlet-class>it.dstech.servlet.ServletOrtofrutta</servlet-class>
+		<servlet-class>it.dstech.servlet.CreaProdotto</servlet-class>
 	</servlet>
 	
 	<servlet-mapping>
 		<servlet-name>negozioOrtofrutta</servlet-name>
 		<url-pattern>/negozio</url-pattern>
 	</servlet-mapping>
+	
 	<servlet>
 		<servlet-name>compraOrtofrutta</servlet-name>
 		<servlet-class>it.dstech.servlet.CompraProdotto</servlet-class>
@@ -22,5 +23,35 @@
 		<servlet-name>compraOrtofrutta</servlet-name>
 		<url-pattern>/compra</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+	<servlet-name>indirizzamento</servlet-name>
+	<servlet-class>it.dstech.servlet.ServletManagment</servlet-class>
+</servlet>
+
+<servlet-mapping>
+	<servlet-name>indirizzamento</servlet-name>
+	<url-pattern>/intro</url-pattern>
+</servlet-mapping>
+
+<servlet>
+	<servlet-name>eliminare</servlet-name>
+	<servlet-class>it.dstech.servlet.RimuoviProdotto</servlet-class>
+</servlet>
+
+<servlet-mapping>
+	<servlet-name>eliminare</servlet-name>
+	<url-pattern>/rimuovi</url-pattern>
+</servlet-mapping>
+	
+	<servlet>
+	<servlet-name>beta</servlet-name>
+	<servlet-class>it.dstech.servlet.SceltaAzione</servlet-class>
+</servlet>
+
+<servlet-mapping>
+	<servlet-name>beta</servlet-name>
+	<url-pattern>/scegliAzione</url-pattern>
+</servlet-mapping>
 	
 	</web-app>

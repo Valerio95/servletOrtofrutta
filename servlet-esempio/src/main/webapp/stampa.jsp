@@ -1,5 +1,5 @@
-<%@page import="java.util.List"%>
 <%@page import="it.dstech.servlet.Prodotto"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -17,15 +17,7 @@ for(Prodotto p : listaProdotti){
 
 <% } %>
 
-<form action="compra">
-	ID: <input type="number" name="id" /><br><br>
-	Quantità: <input type="number" name ="qta" /><br><br>
-	<input type="submit" value="VENDI!"> <br><br>
-</form>
-
-<br><br>
 <form action="intro">
 <input type="submit" value="Torna in home"> </form>
-</body>
 </body>
 </html>

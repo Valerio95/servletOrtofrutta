@@ -1,3 +1,5 @@
+<%@page import="it.dstech.servlet.Prodotto"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -7,15 +9,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Prodotto Creato</h1>
 
-<form action="creaProdotto.jsp">
-  <input type="submit" value="crea un'altro prodotto">
-
-</form>
-<form action="welcome.jsp">
-  <input type="submit" value="home">
+<%=request.getAttribute("messaggio")%> 
 
 
+<form action="intro">
+<input type="submit" value="Torna in home"> </form>
 </body>
 </html>
