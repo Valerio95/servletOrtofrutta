@@ -33,7 +33,7 @@ table, th, td {
 </table>
 
 <form action="rimuovi" method="post">
-	ID: <input type="number" name="id" /><br><br>
+	ID: <input type="number"min = "1" name="id" /><br><br>
 	<input type="submit" value="RIMUOVI"> <br><br>
 </form>
 
