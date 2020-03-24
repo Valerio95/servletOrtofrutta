@@ -28,15 +28,16 @@ public class DBManagment {
 			String nome="";
 			int quantità=0;
 			while (executecontrolloProdotti.next()) {
-				if(p.getNome().equals(executecontrolloProdotti.getString(2))) {
-					PreparedStatement updateQuery = this.connessione.prepareStatement("Update prodotti set quantità = ? where nome = ?");
-					updateQuery.setInt(1, p.getQuantità()+quantità);
-					updateQuery.setString(2, nome);
-					updateQuery.execute();
+				nome=executecontrolloProdotti.getString(2);
+				quantità=executecontrolloProdotti.getInt(3);
 				}
-				}
-			
-			
+			if(p.getNome().equalsIgnoreCase(nome)) {
+				PreparedStatement updateQuery = this.connessione.prepareStatement("Update prodotti set quantità = ? where nome = ?");
+				updateQuery.setInt(1, p.getQuantità()+quantità);
+				updateQuery.setString(2, p.getNome());
+				updateQuery.execute();
+			}
+			else {
 			PreparedStatement prepareStatement = this.connessione.prepareStatement("INSERT INTO prodotti(nome, quantità, descrizione, prezzo) VALUES ( ?, ?, ?, ?);");
 			prepareStatement.setString(1, p.getNome());
 			prepareStatement.setInt(2, p.getQuantità());
@@ -53,7 +54,7 @@ public class DBManagment {
 			PreparedStatement prepareStatement3 = this.connessione.prepareStatement("INSERT INTO prodotti_venduti(id_prodotti_venduti) VALUES ( ?);");
 			prepareStatement3.setInt(1,id);
 			prepareStatement3.execute();
-
+			}
 		}
 		public void rimuoviProdotto(int id) throws SQLException {
 			PreparedStatement prepareStatement = this.connessione.prepareStatement("delete from prodotti where id = ? limit 1");

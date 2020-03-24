@@ -17,7 +17,7 @@ for(Prodotto p : listaProdotti){
 
 <% } %>
 
-<form action="compra">
+<form action="compra" method="post">
 	ID: <input type="number" name="id" /><br><br>
 	Quantità: <input type="number" name ="qta" /><br><br>
 	<input type="submit" value="VENDI!"> <br><br>

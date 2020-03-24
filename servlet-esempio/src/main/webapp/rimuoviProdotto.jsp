@@ -17,7 +17,7 @@ for(Prodotto p : listaProdotti){
 
 <% } %>
 
-<form action="rimuovi">
+<form action="rimuovi" method="post">
 	ID: <input type="number" name="id" /><br><br>
 	<input type="submit" value="RIMUOVI"> <br><br>
 </form>

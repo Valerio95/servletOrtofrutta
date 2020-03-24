@@ -13,6 +13,12 @@ import it.dstech.servlet.repos.DBManagment;
 public class RimuoviProdotto extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.setAttribute("messaggio", "hai provato a fare l'accesso all'aggiunta di un prodotto dalla get");
+		req.getRequestDispatcher("welcome.jsp").forward(req, resp);
+
+	}
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		int id = Integer.parseInt(req.getParameter("id"));
 		try {
 			DBManagment db = new DBManagment();
