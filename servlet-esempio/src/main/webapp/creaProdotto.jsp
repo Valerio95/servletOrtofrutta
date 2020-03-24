@@ -11,7 +11,7 @@
 
 <form action="negozio" method="post">
 	Nome:<input type="text" name="nome" /><br><br>
-	Quantità:<input type="number" name="qta" /><br><br>
+	Quantità:<input type="number"min = "1" name="qta" /><br><br>
 	Descrizione:<input type="text" name="descrizione" /><br><br>
 	Prezzo:<input type="number" name="prezzo" /><br><br>
 	<input type="submit" name ="azione" value="Aggiungi" /> <br>

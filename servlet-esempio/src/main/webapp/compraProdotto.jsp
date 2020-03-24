@@ -8,14 +8,28 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+</style>
 <body>
 
-<%List<Prodotto> listaProdotti = (List<Prodotto>)request.getAttribute("lista"); 
-for(Prodotto p : listaProdotti){
-%>
-<%=p.getId()%> - <%=p.getNome()%> - <%=p.getQuantità()%> <br><br>
+<%List<Prodotto> listaProdotti = (List<Prodotto>)request.getAttribute("lista"); %>
 
+
+<table>
+<tr>
+  <th>Lista Prodotti</th>
+</tr>	
+<% for(Prodotto p : listaProdotti){%>
+<tr>
+    <td>
+<%=p.getId()%> - <%=p.getNome()%> - <%=p.getQuantità()%> <br><br>
+</td>  
+  </tr>
 <% } %>
+</table>
 
 <form action="compra" method="post">
 	ID: <input type="number" name="id" /><br><br>

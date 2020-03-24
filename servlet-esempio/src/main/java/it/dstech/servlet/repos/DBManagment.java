@@ -81,8 +81,15 @@ public class DBManagment {
 			updateQuery.setInt(1, prodottoDB.getQuantità() - qta);
 			updateQuery.setInt(2, prodottoDB.getId());
 			updateQuery.execute();
+			PreparedStatement prepareStatement2 = this.connessione.prepareStatement("select * from prodotti_venduti where id_prodotti_venduti = ?");
+			prepareStatement2.setInt(1, id);
+			ResultSet executeQuery2 = prepareStatement2.executeQuery();
+			int qta2=0;
+			while (executeQuery2.next()) {
+				qta2=executeQuery2.getInt(2);
+			}
 			PreparedStatement updateQuery2 = this.connessione.prepareStatement("Update prodotti_venduti set numero_vendite = ? where id_prodotti_venduti = ?");
-			updateQuery2.setInt(1, prodottoDB.getQuantità());
+			updateQuery2.setInt(1,qta+qta2);
 			updateQuery2.setInt(2, prodottoDB.getId());
 			updateQuery2.execute();
 			return true;
@@ -115,14 +122,16 @@ public class DBManagment {
 				
 				id= executeQuery.getInt(3);
 				temp.setQuantità(executeQuery.getInt(2));
+				PreparedStatement updateQuery2 = this.connessione.prepareStatement("select * from prodotti where id=?;");
+				updateQuery2.setInt(1, id);
+				ResultSet executeQuery2 = updateQuery2.executeQuery();
+				while(executeQuery2.next()) {
+					temp.setNome(executeQuery2.getString(2));
+					elenco.add(temp);
+				}
+				
 			}
-			PreparedStatement updateQuery2 = this.connessione.prepareStatement("select * from prodotti where id=?;");
-			updateQuery2.setInt(1, id);
-			ResultSet executeQuery2 = updateQuery2.executeQuery();
-			while(executeQuery2.next()) {
-				temp.setNome(executeQuery2.getString(2));
-			}
-			elenco.add(temp);
+			
 			return elenco;
 		}
 	}
