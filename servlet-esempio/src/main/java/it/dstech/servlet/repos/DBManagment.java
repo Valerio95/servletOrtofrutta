@@ -115,12 +115,10 @@ public class DBManagment {
 		public List<Prodotto> creaListaVendite() throws SQLException {
 			PreparedStatement updateQuery = this.connessione.prepareStatement("select * from prodotti_venduti;");
 			ResultSet executeQuery = updateQuery.executeQuery();
-			List<Prodotto> elenco = new ArrayList<>();
-			Prodotto temp = new Prodotto();
-			int id=0;
+			List<Prodotto> elenco = new ArrayList<>();	
 			while(executeQuery.next()) {
-				
-				id= executeQuery.getInt(3);
+				Prodotto temp = new Prodotto();
+				int id= executeQuery.getInt(3);
 				temp.setQuantità(executeQuery.getInt(2));
 				PreparedStatement updateQuery2 = this.connessione.prepareStatement("select * from prodotti where id=?;");
 				updateQuery2.setInt(1, id);
